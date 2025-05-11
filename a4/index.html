@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h2{
-            color: blue;
-        }
+        h2 {
+      color: blue;
+    }
+
+
+
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.5s;
+    }
+
+   
 
     </style>
    
@@ -16,6 +37,8 @@
  <h2 style="text-align: center;">Create a new account</h2>
  <p style="text-align: center;">its quick and easy</p>
 <hr>
+<div class="row">
+    <div class="box">
 <p style="text-align: center;"><b>firstname:</b><input type="text" placeholder="First name"></p>
 <p style="text-align: center;"><b>lastname:</b><input type="text" placeholder="second name"></p>
 <P style="text-align: center;"><b>Date :<select >
@@ -28,11 +51,12 @@
     <option value="">2025</option>
     <option value="">2026</option>
 </select> </b></P>
-<p style="text-align: center;"><b>Date of birth:</b><input type="date"></p>
+
 <p style="text-align: center;"><b>gender:</b><input type="radio" name="gender">male<input type="radio" name="gender">female</p>
 <p style="text-align: center;"><b>Email:</b><input type="email" placeholder="enter email id"></p>
 <p style="text-align: center;"><b>age:</b><input type="number" placeholder="enter age"></p>
 <p style="text-align: center;"><b></b><input type="submit"></p>
- </table>
+</div>
+ </div>
 </body>
 </html>
