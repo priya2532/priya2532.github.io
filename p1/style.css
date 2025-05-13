@@ -200,5 +200,6 @@ footer {
 .project-box:hover,
 .about-container:hover {
     background-color: #ffc107; /* Amber */
+    color: #212121;
     transform: scale(1.1);
 }
