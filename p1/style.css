@@ -210,7 +210,7 @@ footer {
   transform: scale(1.1,1.1);
   }
 .about-container:hover {
-    background-color: #ffc107; /* Amber */
+    background-color:gainsboro; 
     color: #212121;
     transform: scale(1.1);
 }
