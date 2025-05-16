@@ -1,62 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        h2 {
-      color: blue;
-    }
-
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facebook Form</title>
+  <style>
     .row {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
     .box {
       background-color: white;
       border: 1px solid #ccc;
       padding: 20px;
-      width: 250px;
+      width: 400px;
       border-radius: 12px;
       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.5s;
     }
-
-   
-
-    </style>
-   
+    .typ, .typ2 {
+      display: flex;
+      gap: 10px;
+    }
+    h1 {
+      color: blue;
+      text-align: center;
+      font-size: 50px;
+    }
+    #fields {
+      display: none;
+      flex-direction: column;
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
- <h2 style="text-align: center;">Create a new account</h2>
- <p style="text-align: center;">its quick and easy</p>
-<hr>
-<div class="row">
-    <div class="box">
-<p style="text-align: center;"><b>firstname:</b><input type="text" placeholder="First name"></p>
-<p style="text-align: center;"><b>lastname:</b><input type="text" placeholder="second name"></p>
-<P style="text-align: center;"><b>Date :<select >
-    <option value="">1</option>
-    <option value="">2</option>
-</select> <b>Month:<select >
-    <option value="">january</option>
-    <option value="">february</option>
-</select> </b><b>year:<select >
-    <option value="">2025</option>
-    <option value="">2026</option>
-</select> </b></P>
+  <h1><b>Facebook</b></h1>
 
-<p style="text-align: center;"><b>gender:</b><input type="radio" name="gender">male<input type="radio" name="gender">female</p>
-<p style="text-align: center;"><b>Email:</b><input type="email" placeholder="enter email id"></p>
-<p style="text-align: center;"><b>age:</b><input type="number" placeholder="enter age"></p>
-<p style="text-align: center;"><b></b><input type="submit"></p>
-</div>
- </div>
+  <div class="row">
+    <div class="box">
+      <h2><b>Create a new account</b></h2>
+      <p>It's quick and easy</p>
+      <hr /><br />
+
+      <div class="typ">
+        <input type="text" placeholder="First name" style="border-radius: 5px;" />
+        <input type="text" placeholder="Second name" style="border-radius: 5px;" />
+      </div>
+      <br />
+
+      <fieldset>
+        <legend><b>Date Of Birth</b></legend>
+        <p style="text-align: center;">
+          <select id="n1" style="border-radius: 5px; width: 100px; height: 20px; font-size: 15px">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+          <select style="border-radius: 5px; width: 100px; height: 20px; font-size: 15px">
+            <option value="">January</option>
+            <option value="">February</option>
+            <option value="">March</option>
+            <option value="">April</option>
+            <option value="">May</option>
+            <option value="">June</option>
+          </select>
+          <select id="n2" style="border-radius: 5px; width: 100px; height: 20px; font-size: 15px">
+            <option>2000</option>
+            <option>2001</option>
+            <option>2002</option>
+          </select>
+        </p>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>Gender</legend>
+        <div style="display: flex; gap: 10px;">
+          <label style="border: 1px solid #ccc; border-radius: 6px; padding: 10px 15px; display: flex; align-items: center; cursor: pointer;">
+            Female
+            <input type="radio" name="gender" value="female" style="margin-left: 10px;" onclick="toggleCustomFields(false)" />
+          </label>
+
+          <label style="border: 1px solid #ccc; border-radius: 6px; padding: 10px 15px; display: flex; align-items: center; cursor: pointer;">
+            Male
+            <input type="radio" name="gender" value="male" style="margin-left: 10px;" onclick="toggleCustomFields(false)" />
+          </label>
+
+          <label style="border: 1px solid #ccc; border-radius: 6px; padding: 10px 15px; display: flex; align-items: center; cursor: pointer;">
+            Custom
+            <input type="radio" name="gender" value="custom" style="margin-left: 10px;" onclick="toggleCustomFields(true)" />
+          </label>
+        </div>
+
+        <div id="fields">
+          <br />
+          <select>
+            <option disabled selected>Select your pronoun</option>
+            <option>She</option>
+            <option>He</option>
+            <option>They</option>
+          </select>
+          <br /><br />
+          <input type="text" placeholder="Gender (optional)" />
+        </div>
+      </fieldset>
+      <br />
+
+      <div class="typ2">
+        <input type="email" placeholder="Enter email id" style="border-radius: 5px; border: 1px solid #ccc;" />
+        <input type="number" placeholder="Enter age" style="border-radius: 5px;" />
+      </div>
+
+
+
+      <p style="text-align: center;">
+        <input type="submit" style="border-radius: 5px; background-color: darkgreen; color: white;" onclick="handleSubmit(event)"/>
+      </p>
+    </div>
+  </div>
+  
+
+
+  <script src="script.js"></script>
+ 
+
 </body>
 </html>
