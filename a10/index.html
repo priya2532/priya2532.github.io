@@ -17,6 +17,11 @@
         padding: 10px;
         width: 200px;
       }
+      button {
+      margin: 5px;
+      padding: 5px 10px;
+    }
+    
     </style>
   </head>
   <body onload="dispproducts()">
@@ -44,12 +49,21 @@
          let price =document.querySelector("#textprice").value
           let imgUrl =document.querySelector("#texturl").value
         const obj = {
-           id:id,name:name,price:price,imgUrl:imgUrl,
-          
+            id: parseInt(id),
+        name,
+        price: parseFloat(price),
+        imgUrl,
         };
+
          products.push(obj)
          dispproducts()
       }
+
+      function deleteProduct(id) {
+      products = products.filter(product => product.id !== id);
+      dispproducts();
+    }
+
 
       function dispproducts(){
       let str = "";
@@ -59,6 +73,7 @@
                 <h2>${value.name}</h2>
                 <h3>${value.price}</h3>
                 <button>Add to Cart</button>
+                <button onclick="deleteProduct(${value.id})">Delete</button>
                 </div>`;
       });
       container.innerHTML = str;
