@@ -17,27 +17,35 @@ const addToCart = (id) => {
 
 const increment = (id) => {
   cart[id] = cart[id] + 1;
-  dispCart();
+  dispCart()
 };
 
 const decrement = (id) => {
   cart[id] = cart[id] - 1;
-  dispCart();
+   dispCart()
 };
 
 const dispCart = () => {
-  let str = "<h2>Cart</h2>";
-  products.map((value) => {
-    cart[value.id] &&
-      (str += `<div>
-      ${value.name}
-      -${value.price}
-      -<button onclick='decrement(${value.id})'>-</button>
-      ${cart[value.id]}
-      <button onclick='increment(${value.id})'>+</button>
-      -${value.price * cart[value.id]}
-    </div>
-    `);
+  let str = `<h2 style="text-align:center;">Cart</h2><div class="container-2">`;
+
+  let isEmpty = true;
+
+  products.forEach((value) => {
+    if (cart[value.id]) {
+      isEmpty = false;
+      str += `
+        <div class="p1"style="text-align:center;">
+          <h4>${value.name}</h4>
+          <h5>Price: $${value.price}</h5>
+          <div style="margin: 10px 0;">
+            <button class="btn" onclick="decrement(${value.id})">-</button>
+            <span style="margin: 0 10px;">${cart[value.id]}</span>
+            <button class="btn" onclick="increment(${value.id})">+</button>
+          </div>
+          <h5>Total: $${value.price * cart[value.id]}</h5>
+        </div>
+      `;
+    }
   });
   str += `<h4 id='orderValue'></h4>`;
   root.innerHTML = str;
@@ -49,7 +57,18 @@ const dispOrderValue = () => {
     return sum + value.price * (cart[value.id] ?? 0);
   },0);
   orderValue.innerHTML = `Order Value: ${grandTotal}`;
+
+
+  if (isEmpty) {
+    str += `<p style="text-align:center; width: 100%;">Your cart is empty.</p>`;
+  }
+
+  str += `</div>`; // Close container-2
+
+  document.getElementById("root").innerHTML = str;
 };
+
+
 
 const showProducts = () => {
   let str = "";
@@ -58,7 +77,7 @@ const showProducts = () => {
       <h3>${value.name}</h3>
       <h4>${value.price}</h4>
       <button onclick='addToCart(${value.id})'>Add to Cart</button>
-    </div>
+     </div>
     `;
   });
   root.innerHTML = "<div class='row'>" + str + "</div>";
